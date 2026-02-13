@@ -1,0 +1,55 @@
+In that file their is a meaning of the all code which is in that main.py:
+
+1. Write the Data Fetching Logic
+
+CODE :
+import fastf1
+import os
+MEANING:
+import fastf1 → Imports the FastF1 library
+FastF1 is used to download and analyze Formula 1 data (laps, telemetry, weather, etc.).
+
+import os → Imports Python’s Operating System module
+It helps create folders and check if files/folders exist.
+
+
+
+CODE:
+def enable_cache():
+    cache_dir = ".fastf1-cache"
+MEANING:
+*This function is created to enable caching.
+📌 What is caching?
+Caching means storing downloaded F1 data locally on your computer so:
+First time → data downloads from internet
+Next time → data loads from your PC (much faster ⚡)
+* Create a variable name cache_dir which stores a data which is in the folder ".fastf1-cache"
+
+
+CODE:
+if not os.path.exists(cache_dir):
+        os.makedirs(cache_dir)
+MEANING:
+if cache dir is not exist then it creates automatically
+
+
+
+CODE:
+fastf1.Cache.enable_cache(cache_dir)
+    print(f"Fastf1 cache enabled \nenabled at: {cache_dir}")
+MEANING:
+Tells this folder to store downloaded data and print this
+
+
+
+CODE:
+def def load_session(year, round_number, session_type):
+    session = fastf1.get_session(year , round_number , session_type)
+MEANING:
+This function loads a specific F1 session
+This fetches the event details
+it takes 3 inputs
+ Parameter      Meaning
+1. year         session year (e.g 2023)
+2. round_no.    Race number
+3. session type Type of the session("FP1" , "FP2" , "Q" , "R")
